@@ -6,8 +6,9 @@ import com.bootcamp.commons.models.Criteria;
 import com.bootcamp.commons.models.Criterias;
 import com.bootcamp.crud.PagUserCRUD;
 import com.bootcamp.crud.UserRoleCRUD;
+import com.bootcamp.entities.PagRole;
 import com.bootcamp.entities.PagUser;
-import com.bootcamp.entities.Role;
+import com.bootcamp.entities.PagRole;
 import com.bootcamp.entities.UserRole;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,12 +60,11 @@ public class AuthenticationUserService implements UserService {
 
             //criterias = new Criterias();
             //criterias.addCriteria(new Criteria("pa.id", "=", user.getId()));
-
             List<UserRole> userRoles = user.getUserRoles();
 
-            List<Role> roles = new ArrayList<>();
+            List<PagRole> roles = new ArrayList<>();
             for(UserRole userRole: userRoles){
-                roles.add(userRole.getRole());
+                roles.add(userRole.getPagRole());
             }
             authorities = getAuthorities(roles);
 
@@ -76,10 +76,10 @@ public class AuthenticationUserService implements UserService {
 
 
     private Collection<? extends GrantedAuthority> getAuthorities(
-            Collection<Role> roles) {
+            Collection<PagRole> roles) {
         Collection<GrantedAuthority> grantedAuthorities = new ArrayList<>();
 
-        for (Role role : roles) {
+        for (PagRole role : roles) {
             //TRoleEntity tRoleEntity = tRoleRepository.findByUid(role.getRoleId());
             grantedAuthorities.addAll(getGrantedAuthorities(getPrivileges(role.getName())));
         }

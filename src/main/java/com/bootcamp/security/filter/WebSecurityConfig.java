@@ -138,6 +138,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             ).permitAll()
             .antMatchers(HttpMethod.POST, loginUrl).permitAll()
             .antMatchers(HttpMethod.GET, "/logout/**").permitAll()
+                .antMatchers("**/admin/**").hasAnyAuthority("ADMIN_TECHNIQUE", "ADMIN_CONTENU")
+                .antMatchers("**/stat/**").hasAnyAuthority("ADMIN_TECHNIQUE", "ADMIN_CONTENU", "PARTENAIRE")
                 .anyRequest().permitAll()
             //.anyRequest().authenticated()
 
@@ -194,6 +196,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers( "/**/product/pricing/**", "/", "/**/resetPassword/**", "/**/logout/**", "/**/forgotPassword/**", "/**/customer/**", "/**/product/productEditionLimit/**");
+        web.ignoring().antMatchers(  "/**/resetPassword/**", "/**/logout/**", "/**/forgotPassword/**", "/**/customer/**", "/**/product/productEditionLimit/**");
     }
 }
