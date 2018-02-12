@@ -1,10 +1,4 @@
-/**
- * Copyright (c) 2017, AskLytics and/or its affiliates. All rights reserved.
- * <p>
- * ASKLYTICS PROPRIETARY/CONFIDENTIAL. Use is subject to Non-Disclosure Agreement.
- *
- * @author tpoola on 3/21/2017
- */
+
 package com.bootcamp.jwt;
 
 import com.bootcamp.security.jwt.JwtUtils;

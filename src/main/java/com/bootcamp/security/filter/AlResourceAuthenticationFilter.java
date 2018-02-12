@@ -1,6 +1,4 @@
-
 package com.bootcamp.security.filter;
-
 
 import com.bootcamp.security.constants.SecurityToken;
 import com.bootcamp.security.jwt.JwtUtils;
@@ -31,6 +29,7 @@ import java.io.IOException;
 import java.util.Arrays;
 
 public class AlResourceAuthenticationFilter extends GenericFilterBean implements SecurityToken {
+
     private final Log logger = LogFactory.getLog(this.getClass());
 
     @Autowired
@@ -38,6 +37,7 @@ public class AlResourceAuthenticationFilter extends GenericFilterBean implements
 
     @Autowired
     private AuthenticationEntryPoint authenticationEntryPoint;
+
     @Autowired
     private CookieService cookieService;
 
@@ -45,34 +45,39 @@ public class AlResourceAuthenticationFilter extends GenericFilterBean implements
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
-       // if(includeUrl(request.getServletPath())) {
-            String authToken = "";
-            Cookie[] cookies = request.getCookies();
 
+        if(!excludeUrl(request.getServletPath())) {
+            String authToken = request.getHeader(TOKEN);
+            Cookie[] cookies = request.getCookies();
 
             if (Strings.isNullOrEmpty(authToken) && (cookies != null && cookies.length != 0)) {
                 Cookie tokenCookie = Arrays.stream(cookies).
                         filter(cookie -> cookie.getName().equalsIgnoreCase(TOKEN)).findFirst().orElse(null);
-                if (tokenCookie != null)
+                if (tokenCookie != null) {
                     authToken = tokenCookie.getValue();
+                }
             }
 
-//            if (Strings.isNullOrEmpty(authToken)) {
-//                logger.error("security error: Attempting to access restricted resource without access token in cookie. " +
-//                        "InvalidCookieException(\"Cookie Does not contain access token\") HttpSeveletRequest dump is below\n" +
-//                        CommonUtils.extractHttpRequestData(request, new StringBuilder()).toString());
-//                authenticationEntryPoint.commence(request, response, new InvalidCookieException("Cookie does not contain access token"));
-//                return;
-//            }
+            if (Strings.isNullOrEmpty(authToken)) {
+                logger.error("security error: Attempting to access restricted resource without access token in cookie. "
+                        + "InvalidCookieException(\"Cookie Does not contain access token\") HttpSeveletRequest dump is below\n"
+                        + CommonUtils.extractHttpRequestData(request, new StringBuilder()).toString());
+                authenticationEntryPoint.commence(request, response, new InvalidCookieException("Cookie does not contain access token"));
+                return;
+            }
 
             // authentication token exists
-            if (! Strings.isNullOrEmpty(authToken)) {
+            if (!Strings.isNullOrEmpty(authToken)) {
                 try {
                     Claims claims = jwtUtils.parseUsernameFromToken(authToken);
                     if (claims != null) {
                         String username = (String) claims.get(JwtUtils.CLAIM_KEY_USERNAME);
-                        if (!"resource".equals(claims.get(JwtUtils.CLAIM_KEY_USER_TYPE)))
+                        logger.info("User name "+username);
+                        logger.info("Avant if "+claims.get(JwtUtils.CLAIM_KEY_USER_TYPE));
+                        if (!"customer".equals(claims.get(JwtUtils.CLAIM_KEY_USER_TYPE))) {
+                            logger.info("Intérieur if "+claims.get(JwtUtils.CLAIM_KEY_USER_TYPE));
                             throw new MalformedJwtException("Token is not valid for this context path : " + request.getContextPath());
+                        }
 
                         logger.info("checking authentication für user " + username);
 
@@ -102,21 +107,37 @@ public class AlResourceAuthenticationFilter extends GenericFilterBean implements
                 }
 
             }
-       // }
+        }
 
         chain.doFilter(request, response);
     }
 
-    private Boolean includeUrl(String url){
-        String [] items = new String[]{
-                "^.*(/).*"
+    private Boolean includeUrl(String url) {
+        String[] items = new String[]{
+            "^.*(/).*"
         };
 
-        for(String item : items){
+        for (String item : items) {
             //match with regex not inverse .. it will fail.
-            if(url.matches(item)) return true;
+            if (url.matches(item)) {
+                return true;
+            }
         }
 
+        return false;
+    }
+
+    private Boolean excludeUrl(String url) {
+        String[] items = new String[]{
+            "^.*(/api/login).*"
+        };
+
+        for (String item : items) {
+            //match with regex not inverse .. it will fail.
+            if (url.matches(item)) {
+                return true;
+            }
+        }
         return false;
     }
 }
