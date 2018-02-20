@@ -1,10 +1,4 @@
-/**
- * Copyright (c) 2016, AskLytics and/or its affiliates. All rights reserved.
- * <p/>
- * ASKLYTICS PROPRIETARY/CONFIDENTIAL. Use is subject to Non-Disclosure Agreement.
- * <p/>
- * Created by bilalshah on 21/04/2016
- */
+
 package com.bootcamp.security.authentication;
 
 
