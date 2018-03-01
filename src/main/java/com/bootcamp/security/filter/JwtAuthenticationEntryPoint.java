@@ -21,6 +21,9 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
         // This is invoked when user tries to access a secured REST resource without supplying any credentials
         // We should just send a 401 Unauthorized response because there is no 'login page' to redirect to
         response.getWriter().write("AUTHORIZATION ERROR");
+
+        //line by fbr
+        response.setHeader("Access-control-allow-credential","true");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
     }
 }

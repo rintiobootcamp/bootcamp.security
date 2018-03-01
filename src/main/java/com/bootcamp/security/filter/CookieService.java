@@ -25,8 +25,8 @@ public class CookieService implements SecurityToken{
     //@Value("${app.cookie.secure:false}") //default false
     Boolean secure=false;
 
-    @Value("${app.cookie.domain:localhost}") //default localhost
-    String domain;
+//    @Value("${app.cookie.domain:localhost}") //default localhost
+    String domain = "*";
 
     public Cookie setAlAccessTokenCookie(String authToken){
         // Return the token
