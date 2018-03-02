@@ -26,4 +26,426 @@
 [m[32m2018-03-01 12:06:46.938 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
 [m[32m2018-03-01 12:06:47.106 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@28952dea, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a9800f8, org.springframework.security.web.context.SecurityContextPersistenceFilter@40620d8e, org.springframework.security.web.header.HeaderWriterFilter@73aff8f1, org.springframework.security.web.authentication.logout.LogoutFilter@7bc9e6ab, com.bootcamp.security.filter.JwtLoginFilter@143d9a93, com.bootcamp.security.filter.AlResourceAuthenticationFilter@40226788, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@4159e81b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49b07ee3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a1e3ac1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b5caf08, org.springframework.security.web.session.SessionManagementFilter@27ead29e, org.springframework.security.web.access.ExceptionTranslationFilter@51e37590, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b7d1df8]
 [m[32m2018-03-01 12:06:48.148 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Thu Mar 01 12:06:45 WAT 2018]; root of context hierarchy
+[m[32m2018-03-01 12:40:29.311 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-01 12:40:29.391 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-01 12:40:29.394 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-01 12:40:29.397 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-01 12:40:29.406 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-01 12:40:29.617 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-01 12:40:30.037 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Thu Mar 01 12:40:30 WAT 2018]; root of context hierarchy
+[m[33m2018-03-01 12:40:31.106 WAT [main] o.s.c.s.GenericApplicationContext WARN : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'allowedCredentials'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.allowedCredentials:true}]
+[m[31m2018-03-01 12:40:31.111 WAT [main] o.s.t.c.TestContextManager ERROR: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df] to prepare test instance [com.bootcamp.jwt.JwtUtilsTest@82ea68c]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:149)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:115)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:204)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:107)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:112)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'allowedCredentials'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.allowedCredentials:true}]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:838)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:537)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 34 more
+Caused by: org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'java.lang.Boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.allowedCredentials:true}]
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:77)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:54)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1092)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.allowedCredentials:true}]
+	at org.springframework.beans.propertyeditors.CustomBooleanEditor.setAsText(CustomBooleanEditor.java:123)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:468)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:441)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:199)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:125)
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:61)
+	... 56 more
+[m[32m2018-03-01 12:47:09.332 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-01 12:47:09.388 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-01 12:47:09.391 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-01 12:47:09.393 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-01 12:47:09.403 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-01 12:47:09.558 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-01 12:47:09.863 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Thu Mar 01 12:47:09 WAT 2018]; root of context hierarchy
+[m[33m2018-03-01 12:47:10.832 WAT [main] o.s.c.s.GenericApplicationContext WARN : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'accessCreditial'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+[m[31m2018-03-01 12:47:10.837 WAT [main] o.s.t.c.TestContextManager ERROR: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df] to prepare test instance [com.bootcamp.jwt.JwtUtilsTest@82ea68c]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:149)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:115)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:204)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:107)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:112)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'accessCreditial'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:838)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:537)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 34 more
+Caused by: org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:77)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:54)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1092)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.propertyeditors.CustomBooleanEditor.setAsText(CustomBooleanEditor.java:123)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:468)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:441)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:199)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:125)
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:61)
+	... 56 more
+[m[32m2018-03-01 12:49:25.198 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-01 12:49:25.242 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-01 12:49:25.245 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-01 12:49:25.246 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-01 12:49:25.255 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-01 12:49:25.387 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-01 12:49:25.715 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Thu Mar 01 12:49:25 WAT 2018]; root of context hierarchy
+[m[32m2018-03-01 12:49:27.273 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-01 12:49:27.274 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-01 12:49:27.274 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-01 12:49:27.274 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-01 12:49:27.274 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-01 12:49:27.444 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@5a9800f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@143d9a93, org.springframework.security.web.context.SecurityContextPersistenceFilter@383f3558, org.springframework.security.web.header.HeaderWriterFilter@27cbfddf, org.springframework.security.web.authentication.logout.LogoutFilter@5488b5c5, com.bootcamp.security.filter.JwtLoginFilter@40226788, com.bootcamp.security.filter.AlResourceAuthenticationFilter@4159e81b, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@5b5caf08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@352e612e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e78fcf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cd4ff2, org.springframework.security.web.session.SessionManagementFilter@4c060c8f, org.springframework.security.web.access.ExceptionTranslationFilter@deb3b60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3044e9c7]
+[m[32m2018-03-01 12:49:28.373 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Thu Mar 01 12:49:25 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 08:56:30.529 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 08:56:30.596 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 08:56:30.599 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 08:56:30.601 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 08:56:30.610 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 08:56:30.742 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 08:56:31.039 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 08:56:31 WAT 2018]; root of context hierarchy
+[m[33m2018-03-02 08:56:32.006 WAT [main] o.s.c.s.GenericApplicationContext WARN : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'accessCreditial'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+[m[31m2018-03-02 08:56:32.013 WAT [main] o.s.t.c.TestContextManager ERROR: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df] to prepare test instance [com.bootcamp.jwt.JwtUtilsTest@82ea68c]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:149)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:115)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:204)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:107)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:112)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'accessCreditial'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:838)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:537)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 34 more
+Caused by: org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:77)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:54)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1092)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Invalid boolean value [${Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.propertyeditors.CustomBooleanEditor.setAsText(CustomBooleanEditor.java:123)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:468)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:441)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:199)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:125)
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:61)
+	... 56 more
+[m[32m2018-03-02 08:57:26.520 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 08:57:26.573 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 08:57:26.576 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 08:57:26.578 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 08:57:26.586 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 08:57:26.719 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 08:57:27.020 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 08:57:27 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 08:57:28.601 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-02 08:57:28.602 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-02 08:57:28.602 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-02 08:57:28.602 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-02 08:57:28.602 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-02 08:57:28.821 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@5a9800f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@143d9a93, org.springframework.security.web.context.SecurityContextPersistenceFilter@383f3558, org.springframework.security.web.header.HeaderWriterFilter@27cbfddf, org.springframework.security.web.authentication.logout.LogoutFilter@5488b5c5, com.bootcamp.security.filter.JwtLoginFilter@40226788, com.bootcamp.security.filter.AlResourceAuthenticationFilter@4159e81b, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@5b5caf08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@352e612e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e78fcf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cd4ff2, org.springframework.security.web.session.SessionManagementFilter@4c060c8f, org.springframework.security.web.access.ExceptionTranslationFilter@deb3b60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3044e9c7]
+[m[32m2018-03-02 08:57:30.128 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 08:57:27 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:14:24.006 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 09:14:24.053 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 09:14:24.056 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 09:14:24.058 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 09:14:24.068 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 09:14:24.227 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 09:14:24.549 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:14:24 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:14:26.045 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-02 09:14:26.046 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-02 09:14:26.046 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-02 09:14:26.046 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-02 09:14:26.046 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-02 09:14:26.277 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@5a9800f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@143d9a93, org.springframework.security.web.context.SecurityContextPersistenceFilter@383f3558, org.springframework.security.web.header.HeaderWriterFilter@27cbfddf, org.springframework.security.web.authentication.logout.LogoutFilter@5488b5c5, com.bootcamp.security.filter.JwtLoginFilter@40226788, com.bootcamp.security.filter.AlResourceAuthenticationFilter@4159e81b, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@5b5caf08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@352e612e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e78fcf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cd4ff2, org.springframework.security.web.session.SessionManagementFilter@4c060c8f, org.springframework.security.web.access.ExceptionTranslationFilter@deb3b60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3044e9c7]
+[m[32m2018-03-02 09:14:27.491 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:14:24 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:16:38.785 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 09:16:38.828 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 09:16:38.831 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 09:16:38.833 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 09:16:38.842 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 09:16:38.965 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 09:16:39.314 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:16:39 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:16:40.839 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-02 09:16:40.839 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-02 09:16:40.839 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-02 09:16:40.840 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-02 09:16:40.840 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-02 09:16:41.082 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@5a9800f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@143d9a93, org.springframework.security.web.context.SecurityContextPersistenceFilter@383f3558, org.springframework.security.web.header.HeaderWriterFilter@27cbfddf, org.springframework.security.web.authentication.logout.LogoutFilter@5488b5c5, com.bootcamp.security.filter.JwtLoginFilter@40226788, com.bootcamp.security.filter.AlResourceAuthenticationFilter@4159e81b, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@5b5caf08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@352e612e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e78fcf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cd4ff2, org.springframework.security.web.session.SessionManagementFilter@4c060c8f, org.springframework.security.web.access.ExceptionTranslationFilter@deb3b60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3044e9c7]
+[m[32m2018-03-02 09:16:42.308 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:16:39 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:19:16.287 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 09:19:16.339 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 09:19:16.342 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 09:19:16.344 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 09:19:16.354 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 09:19:16.508 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 09:19:16.847 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:19:16 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:19:18.391 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-02 09:19:18.391 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-02 09:19:18.392 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-02 09:19:18.392 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-02 09:19:18.392 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-02 09:19:18.545 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@5a9800f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@143d9a93, org.springframework.security.web.context.SecurityContextPersistenceFilter@383f3558, org.springframework.security.web.header.HeaderWriterFilter@27cbfddf, org.springframework.security.web.authentication.logout.LogoutFilter@5488b5c5, com.bootcamp.security.filter.JwtLoginFilter@40226788, com.bootcamp.security.filter.AlResourceAuthenticationFilter@4159e81b, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@5b5caf08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@352e612e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e78fcf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cd4ff2, org.springframework.security.web.session.SessionManagementFilter@4c060c8f, org.springframework.security.web.access.ExceptionTranslationFilter@deb3b60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3044e9c7]
+[m[32m2018-03-02 09:19:19.386 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:19:16 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:52:13.274 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 09:52:13.315 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 09:52:13.318 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 09:52:13.319 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 09:52:13.327 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 09:52:13.439 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 09:52:13.764 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:52:13 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 09:52:15.196 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-02 09:52:15.196 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-02 09:52:15.196 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-02 09:52:15.196 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-02 09:52:15.196 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-02 09:52:15.367 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@5a9800f8, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@143d9a93, org.springframework.security.web.context.SecurityContextPersistenceFilter@383f3558, org.springframework.security.web.header.HeaderWriterFilter@27cbfddf, org.springframework.security.web.authentication.logout.LogoutFilter@5488b5c5, com.bootcamp.security.filter.JwtLoginFilter@40226788, com.bootcamp.security.filter.AlResourceAuthenticationFilter@4159e81b, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@5b5caf08, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@352e612e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6e78fcf5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23cd4ff2, org.springframework.security.web.session.SessionManagementFilter@4c060c8f, org.springframework.security.web.access.ExceptionTranslationFilter@deb3b60, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3044e9c7]
+[m[32m2018-03-02 09:52:16.535 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 09:52:13 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 10:02:01.448 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 10:02:01.490 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 10:02:01.493 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 10:02:01.494 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 10:02:01.504 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 10:02:01.619 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 10:02:01.933 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 10:02:01 WAT 2018]; root of context hierarchy
+[m[33m2018-03-02 10:02:02.906 WAT [main] o.s.c.s.GenericApplicationContext WARN : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'accessCredential'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.Access-Control-Allow-Credentials:true}]
+[m[31m2018-03-02 10:02:02.911 WAT [main] o.s.t.c.TestContextManager ERROR: Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df] to prepare test instance [com.bootcamp.jwt.JwtUtilsTest@82ea68c]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:124)
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:83)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:117)
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:83)
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:230)
+	at org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextPrepareTestInstance(AbstractTestNGSpringContextTests.java:149)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:108)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:523)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:224)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:146)
+	at org.testng.internal.TestMethodWorker.invokeBeforeClassMethods(TestMethodWorker.java:166)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:105)
+	at org.testng.TestRunner.privateRun(TestRunner.java:744)
+	at org.testng.TestRunner.run(TestRunner.java:602)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:380)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:375)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:340)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:289)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1226)
+	at org.testng.TestNG.runSuites(TestNG.java:1144)
+	at org.testng.TestNG.run(TestNG.java:1115)
+	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:115)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.executeMulti(TestNGDirectoryTestSuite.java:204)
+	at org.apache.maven.surefire.testng.TestNGDirectoryTestSuite.execute(TestNGDirectoryTestSuite.java:107)
+	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:112)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103)
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'webSecurityConfig': Unsatisfied dependency expressed through field 'accessCredential'; nested exception is org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:838)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:537)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:128)
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:108)
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:251)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:98)
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:116)
+	... 34 more
+Caused by: org.springframework.beans.TypeMismatchException: Failed to convert value of type 'java.lang.String' to required type 'boolean'; nested exception is java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:77)
+	at org.springframework.beans.TypeConverterSupport.convertIfNecessary(TypeConverterSupport.java:54)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1092)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 52 more
+Caused by: java.lang.IllegalArgumentException: Invalid boolean value [${app.security.cors.Access-Control-Allow-Credentials:true}]
+	at org.springframework.beans.propertyeditors.CustomBooleanEditor.setAsText(CustomBooleanEditor.java:123)
+	at org.springframework.beans.TypeConverterDelegate.doConvertTextValue(TypeConverterDelegate.java:468)
+	at org.springframework.beans.TypeConverterDelegate.doConvertValue(TypeConverterDelegate.java:441)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:199)
+	at org.springframework.beans.TypeConverterDelegate.convertIfNecessary(TypeConverterDelegate.java:125)
+	at org.springframework.beans.TypeConverterSupport.doConvert(TypeConverterSupport.java:61)
+	... 56 more
+[m[32m2018-03-02 10:05:22.134 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@1fb19a0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@6ee4d9ab, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@5a5338df, org.springframework.test.context.support.DirtiesContextTestExecutionListener@418c5a9c]
+[m[32m2018-03-02 10:05:22.213 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.bootcamp.jwt.AuthenticationTest], using DelegatingSmartContextLoader
+[m[32m2018-03-02 10:05:22.217 WAT [main] o.s.t.c.s.AbstractContextLoader INFO : Could not detect default resource locations for test class [com.bootcamp.jwt.AuthenticationTest]: no resource found for suffixes {-context.xml}.
+[m[32m2018-03-02 10:05:22.221 WAT [main] o.s.t.c.s.AnnotationConfigContextLoaderUtils INFO : Could not detect default configuration classes for test class [com.bootcamp.jwt.AuthenticationTest]: AuthenticationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+[m[32m2018-03-02 10:05:22.249 WAT [main] o.s.t.c.s.DefaultTestContextBootstrapper INFO : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@455b6df1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4ddbbdf8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@3f67593e, org.springframework.test.context.support.DirtiesContextTestExecutionListener@1ab06251]
+[m[32m2018-03-02 10:05:22.513 WAT [main] o.s.b.f.x.XmlBeanDefinitionReader INFO : Loading XML bean definitions from class path resource [spring-security-test.xml]
+[m[32m2018-03-02 10:05:23.080 WAT [main] o.s.c.s.GenericApplicationContext INFO : Refreshing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 10:05:23 WAT 2018]; root of context hierarchy
+[m[32m2018-03-02 10:05:24.654 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/resetPassword/**'], []
+[m[32m2018-03-02 10:05:24.655 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/logout/**'], []
+[m[32m2018-03-02 10:05:24.655 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/forgotPassword/**'], []
+[m[32m2018-03-02 10:05:24.655 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/customer/**'], []
+[m[32m2018-03-02 10:05:24.655 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: Ant [pattern='/**/product/productEditionLimit/**'], []
+[m[32m2018-03-02 10:05:24.836 WAT [main] o.s.s.w.DefaultSecurityFilterChain INFO : Creating filter chain: org.springframework.security.web.util.matcher.AnyRequestMatcher@1, [org.springframework.web.filter.CorsFilter@28952dea, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a9800f8, org.springframework.security.web.context.SecurityContextPersistenceFilter@40620d8e, org.springframework.security.web.header.HeaderWriterFilter@73aff8f1, org.springframework.security.web.authentication.logout.LogoutFilter@7bc9e6ab, com.bootcamp.security.filter.JwtLoginFilter@143d9a93, com.bootcamp.security.filter.AlResourceAuthenticationFilter@40226788, com.bootcamp.security.filter.JwtAuthenticationTokenFilter@4159e81b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@49b07ee3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4a1e3ac1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5b5caf08, org.springframework.security.web.session.SessionManagementFilter@27ead29e, org.springframework.security.web.access.ExceptionTranslationFilter@51e37590, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b7d1df8]
+[m[32m2018-03-02 10:05:26.032 WAT [Thread-1] o.s.c.s.GenericApplicationContext INFO : Closing org.springframework.context.support.GenericApplicationContext@3b7d3a38: startup date [Fri Mar 02 10:05:23 WAT 2018]; root of context hierarchy
 [m

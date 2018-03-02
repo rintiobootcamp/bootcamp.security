@@ -47,10 +47,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private String methods;
 
     //@Value("${app.security.cors.allowedCredentials:true}") //default true
-    private Boolean allowedCredentials;
+    private boolean allowedCredentials=true;
 
     @Value("${app.security.cors.exposedHeaders:Access-Control-Allow-Origin,Access-Control-Allow-Credentials}") //default Access-Control-Allow-Origin,Access-Control-Allow-Credentials
     private String exposedHeaders;
+
+//    //line by fbr
+//    @Value("${app.security.cors.Access-Control-Allow-Credentials:true}")
+//    private boolean accessCredential;
 
     @Value("${app.api.version:1.0}") //default 1.0
     private String apiVersion;

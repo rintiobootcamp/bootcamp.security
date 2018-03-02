@@ -132,9 +132,14 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter imple
                     userDetails.getUsername(),
                     roles.toArray(new String[roles.size()]));
 
+
             HttpStatus httpStatus = HttpStatus.OK;
 
             res.addCookie(cookieService.setAlAccessTokenCookie(token));
+            //lines by fbr
+            res.addHeader("token",token);
+            res.setHeader("token",token);
+
         } else {
             User resourceUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
             Collection<GrantedAuthority> authorities = resourceUser.getAuthorities();
@@ -147,6 +152,9 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter imple
             HttpStatus httpStatus = HttpStatus.OK;
 
             res.addCookie(cookieService.setAlAccessTokenCookie(token));
+            //lines by fbr
+            res.addHeader("token",token);
+            res.setHeader("token",token);
         }
     }
 

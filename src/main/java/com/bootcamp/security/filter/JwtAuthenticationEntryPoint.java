@@ -23,7 +23,7 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint, Se
         response.getWriter().write("AUTHORIZATION ERROR");
 
         //line by fbr
-        response.setHeader("Access-control-allow-credential","true");
+        //response.setHeader("Access-control-allow-credential","true");
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
     }
 }
